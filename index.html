@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPS Activity</title>
+</head>
+<body>
+
+    <button onclick="score()">Score</button>
+    <br>
+    <button onclick="rps()">Play again</button>
+
+
+
+
+
+    <script>
+        // Define var
+        let userChoice
+        let computerChoice
+        let wins = 0
+        let losses = 0
+        let ties = 0
+        let choices = ['R', 'P', 'S']
+        
+
+        // Rock Paper Scissors!
+        for (let i = 1; i <= 10; i++) {
+            userChoice = prompt(`           'R', 'P', 'S'
+            Round ${i} / 10 `).toUpperCase()
+            computerChoice = choices[Math.floor(Math.random()*(choices.length))]
+            // tie condition
+            if (userChoice === computerChoice) {
+                alert('You tied!')
+                ties++
+                console.log(`You: ${userChoice}`)
+                console.log(`Computer: ${computerChoice}`)
+                console.log('tie')
+            }
+            // win condition
+            else if ((userChoice === 'R' && computerChoice === choices[2]) ||
+                     (userChoice === 'P' && computerChoice === choices[0]) ||
+                     (userChoice === 'S' && computerChoice === choices[1])) {
+                alert('You win!')
+                wins++
+                console.log(`You: ${userChoice}`)
+                console.log(`Computer: ${computerChoice}`)
+                console.log('win')
+            }
+            // loss default condition
+            else {
+                alert('You lost')
+                losses++
+                console.log(`You: ${userChoice}`)
+                console.log(`Computer: ${computerChoice}`)
+                console.log('loss')
+            }
+        }
+        
+
+        // Ideas: make a check if userChoice !== 'r' 'p' or 's' then i--
+        // console.log to debug and check if everything is working
+
+
+        
+            alert(`
+                Outcome:
+                Wins: ${wins}
+                Losses: ${losses}
+                Ties: ${ties}`)
+        
+        function score() {
+            alert(`
+                Outcome:
+                Wins: ${wins}
+                Losses: ${losses}
+                Ties: ${ties}`)
+        }
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>
